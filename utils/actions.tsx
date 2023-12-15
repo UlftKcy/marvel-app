@@ -4,11 +4,12 @@ import {
   CharacterCard,
   CharacterCardHeader,
   CharacterCardImageWrapper,
-} from "@/components/ui/card";
-import { GridContainer } from "@/components/ui/container";
+} from "@/components/ui/character/card";
+import { GridContainer } from "@/components/ui/character/container";
 import { Character } from "@/types";
 import md5 from "md5";
 import Image from "next/image";
+import Link from "next/link";
 
 const privateKey = process.env.API_PRIVATE_KEY;
 const publicKey = process.env.API_PUBLIC_KEY;
@@ -29,27 +30,29 @@ export const fetchCharacters = async (offset: number) => {
   return (
     <GridContainer>
       {Object.values(data.results).map((character) => {
-        const { id, name, description, thumbnail, comics } =
-          character as Character;
+        const { id, name, thumbnail } = character as Character;
         return (
-          <CharacterCard key={id}>
-            <CharacterCardImageWrapper>
-              <Image
-                src={thumbnail.path + "." + thumbnail.extension}
-                width={100}
-                height={100}
-                objectFit="cover"
-                quality={100}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "5px",
-                }}
-                alt={name}
-              />
-            </CharacterCardImageWrapper>
-            <CharacterCardHeader>{name}</CharacterCardHeader>
-          </CharacterCard>
+          <Link href={`/${id}`} key={id}>
+            <CharacterCard>
+              <CharacterCardImageWrapper>
+                <Image
+                  src={thumbnail.path + "." + thumbnail.extension}
+                  width={100}
+                  height={100}
+                  objectFit="cover"
+                  quality={100}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderTopLeftRadius: "6px",
+                    borderTopRightRadius: "6px",
+                  }}
+                  alt={name}
+                />
+              </CharacterCardImageWrapper>
+              <CharacterCardHeader>{name}</CharacterCardHeader>
+            </CharacterCard>
+          </Link>
         );
       })}
     </GridContainer>

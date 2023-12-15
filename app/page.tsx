@@ -1,5 +1,5 @@
 import LoadMore from "@/components/home/LoadMore";
-import { WrapperContainer } from "@/components/ui/container";
+import { WrapperContainer } from "@/components/ui/character/container";
 import { fetchCharacters } from "@/utils/actions";
 import React from "react";
 

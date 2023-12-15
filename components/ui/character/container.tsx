@@ -5,6 +5,7 @@ export const WrapperContainer = styled.main`
     margin: 0 2rem;
     background-color: #0F1117 ;
     padding: 4rem;
+    min-height: 100vh;
 `
 export const GridContainer = styled.div`
     display:grid;

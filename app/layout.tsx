@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import StyledComponentsRegistry from '@/lib/registry'
+import Navbar from '@/components/ui/navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Navbar/>
         <StyledComponentsRegistry>
-          {children}
+          <main style={{paddingTop:"4rem"}}>{children}</main>
         </StyledComponentsRegistry>
       </body>
     </html>

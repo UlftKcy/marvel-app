@@ -6,15 +6,14 @@ export interface Character {
     path: string;
     extension: string;
   };
-  comics: {
-    available: number;
-    collectionURI: string;
-    items: Comic[];
-    returned: number;
-  };
 }
 
-export interface Comic {
-  resourceURI: string;
-  name: string;
+
+export interface ComicType{
+  id: number;
+  title:string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
 }
