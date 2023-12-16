@@ -12,18 +12,18 @@ export default function CharacterList(characters:Character[]) {
         Object.values(characters).map((character) => {
             const { id, name, thumbnail } = character as Character;
             return (
-              <Link href={`/${id}`} key={id}>
+              <Link href={`/${id}`} key={id} data-testid={id}>
                 <CharacterCard>
                   <CharacterCardImageWrapper>
                     <Image
                       src={thumbnail.path + "." + thumbnail.extension}
                       width={100}
                       height={100}
-                      objectFit="cover"
                       quality={100}
                       style={{
                         width: "100%",
                         height: "100%",
+                        objectFit:"cover",
                         borderTopLeftRadius: "6px",
                         borderTopRightRadius: "6px",
                       }}

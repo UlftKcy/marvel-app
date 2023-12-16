@@ -30,7 +30,7 @@ export default function CharacterDetailHeader(characterData: Character) {
           />
         </CharacterDetailCardImageWrapper>
         <CharacterDetailCardTextWrapper>
-          <CharacterDetailCardTitle>{name}</CharacterDetailCardTitle>
+          <CharacterDetailCardTitle data-testid={id}>{name}</CharacterDetailCardTitle>
           <CharacterDetailCardDescription>
             {description ? description : "No description"}
           </CharacterDetailCardDescription>
