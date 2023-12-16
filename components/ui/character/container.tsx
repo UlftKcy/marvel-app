@@ -12,4 +12,5 @@ export const GridContainer = styled.div`
     grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
     grid-auto-rows: 16rem;
     gap: 2rem;
+    margin-bottom: 2rem;
 `

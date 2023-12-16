@@ -3,24 +3,32 @@ import { useInView } from "react-intersection-observer";
 import { Loading } from "../ui/loading";
 import { useEffect, useState } from "react";
 import { fetchCharacters } from "@/utils/actions";
+import { Character } from "@/types";
+import { GridContainer } from "../ui/character/container";
+import CharacterList from "./CharacterList";
 
 export default function LoadMore() {
   const { ref, inView } = useInView();
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState<Character[]>([]);
   const [offset, setOffset] = useState(30);
 
   useEffect(() => {
     if (inView) {
-      fetchCharacters(offset).then((res: any) => {
-        setCharacters(res);
+      const fetchData = async () => {
+        const data = await fetchCharacters(offset);
+        setCharacters([...characters, ...data]);
         setOffset(offset + 30);
-      });
+      };
+
+      fetchData();
     }
-  }, [inView, characters, offset]);
+  }, [inView, offset, characters]);
 
   return (
     <>
-      {characters}
+      <GridContainer>
+        <CharacterList {...characters} />
+      </GridContainer>
       <Loading ref={ref} />
     </>
   );

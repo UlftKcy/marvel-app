@@ -1,5 +1,4 @@
 "use server";
-
 import {
   CharacterCard,
   CharacterCardHeader,
@@ -25,36 +24,13 @@ export const fetchCharacters = async (offset: number) => {
   const response = await fetch(
     `${process.env.API_BASE_URL}/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=30`
   );
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
   const { data } = await response.json();
 
-  return (
-    <GridContainer>
-      {Object.values(data.results).map((character) => {
-        const { id, name, thumbnail } = character as Character;
-        return (
-          <Link href={`/${id}`} key={id}>
-            <CharacterCard>
-              <CharacterCardImageWrapper>
-                <Image
-                  src={thumbnail.path + "." + thumbnail.extension}
-                  width={100}
-                  height={100}
-                  objectFit="cover"
-                  quality={100}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    borderTopLeftRadius: "6px",
-                    borderTopRightRadius: "6px",
-                  }}
-                  alt={name}
-                />
-              </CharacterCardImageWrapper>
-              <CharacterCardHeader>{name}</CharacterCardHeader>
-            </CharacterCard>
-          </Link>
-        );
-      })}
-    </GridContainer>
-  );
+  return data.results;
+   
 };
