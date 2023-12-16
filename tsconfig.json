@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "__tests__/__snapshots__/CharacterList..tsx.snap"  ],
   "exclude": [
     "node_modules"
   ]

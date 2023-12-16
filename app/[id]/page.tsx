@@ -4,7 +4,7 @@ import { CharacterComicCardWrapper } from "@/components/ui/character-detail/card
 import { fetchCharacter, fetchCharacterWithComics } from "@/utils/actions";
 import { Fragment } from "react";
 
-export default async function Page({ params }: { params: { id: number } }) {
+export default async function CharacterDetailPage({ params }: { params: { id: number } }) {
   const characterData = fetchCharacter(params.id);
   const comicsData = fetchCharacterWithComics(params.id);
 
