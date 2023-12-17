@@ -3,7 +3,7 @@
 <div align="center">
   <h3>
     <a href="https://marvel-app-pearl.vercel.app">
-      Project
+      Go to App
     </a>
   </h3>
 </div>
