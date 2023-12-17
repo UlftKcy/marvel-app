@@ -7,7 +7,7 @@ export default function CharacterComics(comics:ComicType[]) {
   return Object.values(comics).map((comic: ComicType) => {
     const { id, title, thumbnail } = comic;
     return(
-        <CharacterComicCard key={id}>
+        <CharacterComicCard key={id} animate="visible">
             <CharacterComicCardImageWrapper>
             <Image
                   src={thumbnail.path + "." + thumbnail.extension}

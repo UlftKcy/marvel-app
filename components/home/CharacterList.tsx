@@ -13,7 +13,7 @@ export default function CharacterList(characters:Character[]) {
             const { id, name, thumbnail } = character as Character;
             return (
               <Link href={`/${id}`} key={id} data-testid={id}>
-                <CharacterCard>
+                <CharacterCard animate="visible">
                   <CharacterCardImageWrapper>
                     <Image
                       src={thumbnail.path + "." + thumbnail.extension}

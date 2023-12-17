@@ -1,5 +1,14 @@
 "use client";
+import { motion } from "framer-motion";
 import styled from "styled-components";
+
+const variants = {
+  visible: {
+    opacity: 1,
+    transition: { ease: "easeInOut", duration: 0.5 },
+  },
+  hidden: { opacity: 0 },
+};
 
 export const CharacterDetailCard = styled.div`
   display: flex;
@@ -37,11 +46,15 @@ export const CharacterComicCardWrapper = styled.div`
   gap: 3rem;
 `;
 
-export const CharacterComicCard = styled.div`
+export const CharacterComicCard = styled(motion.div).attrs(() => ({
+  initial: "hidden",
+  variants,
+}))`
   display: flex;
   flex-direction: column;
   place-content: center;
   background-color: #ffffff;
+  border-radius: 6px;
 `;
 
 export const CharacterComicCardImageWrapper = styled.div`

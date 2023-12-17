@@ -2,7 +2,7 @@
 import CharacterList from "@/components/home/CharacterList";
 import LoadMore from "@/components/home/LoadMore";
 import { GridContainer, WrapperContainer } from "@/components/ui/character/container";
-import { Header } from "@/components/ui/character/header";
+import { Header } from "@/components/ui/header";
 import { Character } from "@/types";
 import { fetchFilteredCharacters } from "@/utils/actions";
 import { useSearchParams } from "next/navigation";

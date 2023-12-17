@@ -1,7 +1,19 @@
 "use client";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const CharacterCard = styled.div`
+const variants = {
+  visible: {
+    opacity: 1,
+    transition: { ease: "easeInOut", duration: 0.5 },
+  },
+  hidden: { opacity: 0 },
+};
+
+export const CharacterCard = styled(motion.div).attrs(() => ({
+  initial: "hidden",
+  variants,
+}))`
   width: 100%;
   height: 100%;
   display: flex;

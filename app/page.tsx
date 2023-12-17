@@ -1,7 +1,7 @@
 import CharacterList from "@/components/home/CharacterList";
 import LoadMore from "@/components/home/LoadMore";
 import { GridContainer, WrapperContainer } from "@/components/ui/character/container";
-import { Header } from "@/components/ui/character/header";
+import { Header } from "@/components/ui/header";
 import { fetchCharacters } from "@/utils/actions";
 import React from "react";
 
