@@ -2,15 +2,18 @@
 import { useInView } from "react-intersection-observer";
 import { Loading } from "../ui/loading/loading";
 import { Fragment, useEffect, useState } from "react";
-import { fetchCharacters } from "@/utils/actions";
+import { fetchCharacters, fetchFilteredCharacters } from "@/utils/actions";
 import { Character } from "@/types";
 import { GridContainer } from "../ui/character/container";
 import CharacterList from "./CharacterList";
+import { useSearchParams } from "next/navigation";
 
 export default function LoadMore() {
   const { ref, inView } = useInView();
   const [characters, setCharacters] = useState<Character[]>([]);
   const [offset, setOffset] = useState(30);
+  const searchParams = useSearchParams();
+  const query = searchParams.get("q")?.trim();
 
   useEffect(() => {
     if (inView) {
@@ -22,7 +25,17 @@ export default function LoadMore() {
 
       fetchData();
     }
-  }, [inView, offset, characters]);
+
+    if(inView && query){
+      const filteredCharacters = async () => {
+        const data = await fetchFilteredCharacters(offset,query);
+        setCharacters([...characters, ...data]);
+        setOffset(offset + 30);
+      };
+
+      filteredCharacters();
+    }
+  }, [inView, offset, characters,query]);
 
   return (
     <Fragment>

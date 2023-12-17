@@ -64,12 +64,12 @@ export const fetchCharacterWithComics = async (characterId: number) => {
 };
 
 // search characters
-export const fetchFilteredCharacters = async (nameStartsWith: string) => {
+export const fetchFilteredCharacters = async (offset:number,nameStartsWith: string) => {
   const ts = Date.now().toString();
   const hash = generateHash(ts);
 
   const response = await fetch(
-    `${process.env.API_BASE_URL}/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${nameStartsWith}`
+    `${process.env.API_BASE_URL}/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=30&nameStartsWith=${nameStartsWith}`
   );
   
   if (!response.ok) {

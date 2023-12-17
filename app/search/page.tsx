@@ -1,5 +1,6 @@
 "use client";
 import CharacterList from "@/components/home/CharacterList";
+import LoadMore from "@/components/home/LoadMore";
 import { GridContainer, WrapperContainer } from "@/components/ui/character/container";
 import { Header } from "@/components/ui/character/header";
 import { Character } from "@/types";
@@ -15,7 +16,7 @@ export default function SearchPage() {
   useEffect(() => {
     if (query) {
       const filteredCharacters = async () => {
-        const response = await fetchFilteredCharacters(query);
+        const response = await fetchFilteredCharacters(0,query);
         setFilteredCharacters(response);
       };
 
@@ -25,10 +26,11 @@ export default function SearchPage() {
 
   return (
     <WrapperContainer>
-      <Header>Discover Marvel Characters</Header>
+      <Header>{filteredCharacters.length} results</Header>
       <GridContainer>
         <CharacterList {...filteredCharacters} />
       </GridContainer>
+      {filteredCharacters.length >=30 && <LoadMore />}
     </WrapperContainer>
   );
 }
