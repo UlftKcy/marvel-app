@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useEffect, useState } from "react";
-import { SearchInput } from "../ui/search/search";
+import { Form, SearchInput } from "../ui/search/search";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Search() {
@@ -26,13 +26,13 @@ export default function Search() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <SearchInput
         type="search"
         placeholder="Search character..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-    </form>
+    </Form>
   );
 }

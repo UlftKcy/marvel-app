@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <NavbarWrapper>
       <Link href="/">
-        <Image src={MarvelIcon} alt="marvelIcon" />
+        <Image src={MarvelIcon} alt="marvelIcon"/>
       </Link>
       <Search />
     </NavbarWrapper>

@@ -17,17 +17,24 @@ export const CharacterDetailCard = styled.div`
   background-color: #070a0f;
   padding: 2.5rem 4rem;
   margin-bottom: 5rem;
+  min-width: 16rem;
+  @media (max-width: 887px) {
+    flex-direction: column;
+  }
 `;
 
 export const CharacterDetailCardImageWrapper = styled.div`
   margin-right: 2rem;
+  @media (max-width: 887px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const CharacterDetailCardTextWrapper = styled.div`
-  column-span: 2;
   display: flex;
   flex-direction: column;
   align-items: start;
+  flex-wrap: wrap;
 `;
 
 export const CharacterDetailCardTitle = styled.h4`

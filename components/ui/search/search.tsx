@@ -1,6 +1,12 @@
 "use client";
 import styled from "styled-components";
 
+export const Form = styled.form`
+ @media (max-width: 500px) {
+    width: 100%;
+  }
+`;
+
 export const SearchInput = styled.input`
   width: clamp(240px, 30vw, 50vw);
   padding: 0.8rem 1rem;
@@ -13,5 +19,10 @@ export const SearchInput = styled.input`
     outline-style: solid;
     outline-color: #2d3344;
     outline-width: thin;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin-top: 1rem;
   }
 `;
