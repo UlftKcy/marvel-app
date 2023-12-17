@@ -1,6 +1,6 @@
 "use client";
 import { useInView } from "react-intersection-observer";
-import { Loading } from "../ui/loading";
+import { Loading } from "../ui/loading/loading";
 import { Fragment, useEffect, useState } from "react";
 import { fetchCharacters } from "@/utils/actions";
 import { Character } from "@/types";

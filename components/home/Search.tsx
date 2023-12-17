@@ -3,7 +3,7 @@ import {
   FormEvent,
   useState,
 } from "react";
-import { SearchInput } from "../ui/search";
+import { SearchInput } from "../ui/search/search";
 import { useRouter } from "next/navigation";
 
 export default function Search() {

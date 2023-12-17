@@ -63,3 +63,21 @@ export const fetchCharacterWithComics = async (characterId: number) => {
   return data;
 };
 
+// search characters
+export const fetchFilteredCharacters = async (nameStartsWith: string) => {
+  const ts = Date.now().toString();
+  const hash = generateHash(ts);
+
+  const response = await fetch(
+    `${process.env.API_BASE_URL}/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${nameStartsWith}`
+  );
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  const { data } = await response.json();
+
+  return data.results;
+   
+};

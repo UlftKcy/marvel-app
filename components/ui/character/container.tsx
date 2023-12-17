@@ -9,7 +9,7 @@ export const WrapperContainer = styled.main`
 `
 export const GridContainer = styled.div`
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 16rem;
     gap: 2rem;
     margin-bottom: 2rem;
